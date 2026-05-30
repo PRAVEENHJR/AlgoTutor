@@ -11,7 +11,7 @@ const clearChat = document.getElementById('clearChat');
 
 // Initialize Gemini (Model version updated to 1.5-flash for stability)
 const ai = new GoogleGenAI({
-   apiKey: "AIzaSyDVKB8IRPsJcUytEzr3P-LCnb3XdWpJlPA"
+   apiKey: "YOUR_API_KEY"
 });
 
 const chat = ai.chats.create({
