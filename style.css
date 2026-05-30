@@ -1,0 +1,305 @@
+:root {
+    --bg-dark: #0f1115;
+    --card-bg: #1a1d23;
+    --accent: #7c4dff;
+    --accent-glow: rgba(124, 77, 255, 0.3);
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+    --border: #2d333b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: var(--bg-dark);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-main);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;
+    left: -300px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--card-bg);
+    border-right: 1px solid var(--border);
+    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    padding: 40px 20px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.feature-card {
+    background: #252932;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 92vh;
+    background: var(--card-bg);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    position: relative;
+}
+
+.chat-header {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-title h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Messages Area */
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    scroll-behavior: smooth;
+}
+
+.message {
+    margin-bottom: 24px;
+    max-width: 85%;
+    line-height: 1.6;
+}
+
+.message.user {
+    margin-left: auto;
+    background: var(--accent);
+    padding: 12px 20px;
+    border-radius: 18px 18px 2px 18px;
+    color: white;
+}
+
+.message.assistant {
+    background: #252932;
+    padding: 15px 25px;
+    border-radius: 18px 18px 18px 2px;
+    border: 1px solid var(--border);
+}
+
+/* Code blocks look like an IDE */
+pre {
+    background: #0d0f12 !important;
+    border-left: 3px solid var(--accent);
+    font-family: 'JetBrains Mono', monospace !important;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 0.85rem;
+}
+
+/* Suggestions Bar */
+.suggestions-bar {
+    display: flex;
+    gap: 10px;
+    padding: 10px 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.chip {
+    background: #252932;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--text-main);
+}
+
+/* Input Area */
+.input-area {
+    background: var(--card-bg);
+    border-top: 1px solid var(--border);
+    padding-bottom: 20px;
+}
+
+.chat-input-container {
+    margin: 10px 30px;
+    background: #252932;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.chat-input-container:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+#userInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    resize: none;
+    padding: 5px;
+    outline: none;
+    max-height: 150px;
+}
+
+#sendBtn {
+    background: var(--accent);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+#sendBtn:hover {
+    transform: scale(1.05);
+}
+/* Sidebar Header */
+.sidebar-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 15px;
+}
+
+.sidebar-header h2 {
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.sidebar-header p {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+.info-section h3 {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-section p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Guidelines Styling */
+.guideline-box {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.guideline-box h4 {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.guideline-box ul {
+    list-style: none;
+    padding-left: 5px;
+}
+
+.guideline-box li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 15px;
+    line-height: 1.4;
+}
+
+.guideline-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+}
+
+/* Green "Do" Box */
+.guideline-box.do {
+    background: rgba(76, 175, 80, 0.05);
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    color: #a5d6a7;
+}
+
+/* Red "Don't" Box */
+.guideline-box.dont {
+    background: rgba(244, 67, 54, 0.05);
+    border: 1px solid rgba(244, 67, 54, 0.2);
+    color: #ef9a9a;
+}
+
+.footer-note {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    text-align: center;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+/* Close Button fix */
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: white;
+}

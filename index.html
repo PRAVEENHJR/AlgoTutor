@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlgoTutor| DSA Tutor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- SIDEBAR: About & Guidelines -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <button class="close-btn" id="closeSidebar">×</button>
+            
+            <div class="sidebar-header">
+                <h2>AlgoTutor </h2>
+                <p>v1.0 • AI DSA Tutor</p>
+            </div>
+
+            <!-- The "What it is" Section -->
+            <div class="info-section">
+                <h3>What is this?</h3>
+                <p>An AI tutor engineered to help you master <strong>Data Structures & Algorithms</strong> using first-principles thinking.</p>
+            </div>
+
+            <!-- Do's Container -->
+            <div class="guideline-box do">
+                <h4>✅ What to do</h4>
+                <ul>
+                    <li>Ask for logic of any algorithm.</li>
+                    <li>Request a "Dry Run" of code.</li>
+                    <li>Analyze Time Complexity.</li>
+                </ul>
+            </div>
+
+            <!-- Don'ts Container -->
+            <div class="guideline-box dont">
+                <h4>❌ What NOT to do</h4>
+                <ul>
+                    <li>Don't ask non-coding questions.</li>
+                    <li>Don't ask for life advice.</li>
+                </ul>
+            </div>
+
+            <div class="footer-note">
+                Built for deep learning. 🚀
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CHAT INTERFACE -->
+    <div class="chat-container">
+        <header class="chat-header">
+            <button class="info-icon" id="openSidebar">ⓘ</button>
+            <div class="header-title">
+                <h1>AlgoTutor</h1>
+                <span class="status-badge">Gemini AI Active</span>
+            </div>
+            <button class="clear-chat" id="clearChat">Clear</button>
+        </header>
+
+        <!-- Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message assistant">
+                <div class="message-content">
+                    Hello! I am your First Principles DSA Tutor. How can I help you deconstruct a coding problem today?
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-area">
+            <div class="suggestions-bar">
+                <button class="chip">Explain Big O</button>
+                <button class="chip">Binary Search Logic</button>
+                <button class="chip">Bubble Sort </button>
+                <button class="chip">Dry run a QuickSort</button>
+            </div>
+
+            <div class="chat-input-container">
+                <textarea 
+                    id="userInput" 
+                    placeholder="Describe the logic you're struggling with..."
+                    rows="1"
+                ></textarea>
+                <button id="sendBtn">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M2.01 21L23 12L2.01 3L2 10l15 2l-15 2z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
