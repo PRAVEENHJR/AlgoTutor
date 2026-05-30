@@ -9,10 +9,40 @@ const closeSidebar = document.getElementById('closeSidebar');
 const chips = document.querySelectorAll('.chip');
 const clearChat = document.getElementById('clearChat');
 
-// When Api is not available:Dummy Response
+// For Api key Handling
 async function handleSend() {
-    addMessage("Demo mode: Gemini API not configured.", "assistant");
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    userInput.value = '';
+    addMessage(message, 'user');
+
+    // API key check
+    const API_KEY = "YOUR_API_KEY";
+
+    if (!API_KEY || API_KEY === "YOUR_API_KEY") {
+        addMessage(
+            "⚠️ API key is not configured. This is a public demo version of AlgoTutor. Please add a valid Gemini API key to enable AI responses.",
+            'assistant'
+        );
+        return;
+    }
+
+    try {
+        const response = await chat.sendMessage({ message });
+        addMessage(response.text, 'assistant');
+    } catch (error) {
+        addMessage(
+            "⚠️ Unable to contact Gemini API. Please try again later.",
+            'assistant'
+        );
+        console.error(error);
+    }
 }
+// When Api is not available:Dummy Response
+// async function handleSend() {
+//     addMessage("Demo mode: Gemini API not configured.", "assistant");
+// }
 // Initialize Gemini (Model version updated to 1.5-flash for stability)
 const ai = new GoogleGenAI({
    apiKey: "YOUR_API_KEY"
