@@ -1,4 +1,7 @@
 # AlgoTutor
+## 🌐 Live Demo
+
+👉 https://your-username.github.io/your-repo-name/
 
 AlgoTutor is an AI-powered Data Structures and Algorithms tutor designed to help students learn through first-principles thinking.
 
