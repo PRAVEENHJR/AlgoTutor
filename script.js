@@ -9,17 +9,6 @@ const closeSidebar = document.getElementById('closeSidebar');
 const chips = document.querySelectorAll('.chip');
 const clearChat = document.getElementById('clearChat');
 
-    try {
-        const response = await chat.sendMessage({ message });
-        addMessage(response.text, 'assistant');
-    } catch (error) {
-        addMessage(
-            "⚠️ Unable to contact Gemini API. Please try again later.",
-            'assistant'
-        );
-        console.error(error);
-    }
-}
 // Initialize Gemini (Model version updated to 1.5-flash for stability)
 const ai = new GoogleGenAI({
    apiKey: "YOUR_API_KEY"
