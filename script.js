@@ -9,6 +9,10 @@ const closeSidebar = document.getElementById('closeSidebar');
 const chips = document.querySelectorAll('.chip');
 const clearChat = document.getElementById('clearChat');
 
+// When Api is not available:Dummy Response
+async function handleSend() {
+    addMessage("Demo mode: Gemini API not configured.", "assistant");
+}
 // Initialize Gemini (Model version updated to 1.5-flash for stability)
 const ai = new GoogleGenAI({
    apiKey: "YOUR_API_KEY"
