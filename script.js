@@ -11,7 +11,7 @@ const clearChat = document.getElementById('clearChat');
 
 // Initialize Gemini (Model version updated to 1.5-flash for stability)
 const ai = new GoogleGenAI({
-    apiKey: "AQ.Ab8RN6ILWdRl0QmAr1QUPPBgJhiB2ydGhS0Bs4Oh0fkAobQsDw" 
+   apiKey: "YOUR_API_KEY"
 });
 
 const chat = ai.chats.create({
@@ -19,12 +19,9 @@ const chat = ai.chats.create({
     config: {
         systemInstruction: `You are AlgoTutor, a first-principles DSA tutor. 
         1. Only answer coding/DSA questions.
-        2. If a user asks a non-coding question.
+        2. If a user asks a non-coding question,reject politely.
         3. Break down problems into: Core Logic -> Algorithm -> Complexity -> Code.
         4. Use 'First Principles' to explain WHY a data structure is used.
-        - give responses in visual and first dot principle with examples unless user ask only in shortRR
-        -reply rudely to user if they ask que which is not related to coding,
-        Ex:You Dumb or whatever like it, ask question only related to coding,dont generate same output`
     }
 });
 
@@ -103,15 +100,10 @@ async function handleSend() {
     addMessage(msg, 'assistant');
     console.error(error);
 }
-    //  catch (error) {
-    //     document.getElementById('temp-typing').remove();
-    //     addMessage("Error: " + error.message, 'assistant');
-    // }
 }
 
 
 sendBtn.onclick = handleSend;
-// userInput.onkeypress = (e) => { if(e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); } };
 userInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
