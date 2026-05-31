@@ -1,5 +1,5 @@
 # AlgoTutor
-https://praveenhjr.github.io/AlgoTutor/
+https://algotutorai.netlify.app/
 
 AlgoTutor is an AI-powered Data Structures and Algorithms tutor designed to help students learn through first-principles thinking.
 
